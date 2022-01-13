@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 
-class User extends Authenticatable
+class UserInxait extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +26,6 @@ class User extends Authenticatable
         'city',
         'phone',
         'email',
-        'password',
         'habeasData'
     ];
 
@@ -34,31 +34,18 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+   
     public static function validate(Request $request)
     {
         $request->validate(
             [
             "name" => "required",
             "last_name" => "required",
-            "cedula" => "required|numeric|gt:0",
+            "cedula" => "required",
             "state" => "required",
             "city" => "required",
-            "phone" => "required|numeric|gt:0",
+            "phone" => "required",
             "email" => "required",
-            "password" => "required",
             "habeasData" => "required",
             ]
         );
@@ -86,6 +73,19 @@ class User extends Authenticatable
 
         $this->attributes['name'] = $name;
     }
+    public function getLastName()
+    {
+
+        return $this->attributes['last_name'];
+    }
+
+    public function setLastName($name)
+    {
+
+        $this->attributes['last_name'] = $name;
+    }
+
+
     public function getState()
     {
 

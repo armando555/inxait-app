@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
+Route::get('/', [App\Http\Controllers\UserController::class, 'get_all_users'])->name("home.index");
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\UserController::class, 'get_all_users'])->name('home');
+Route::post('/user/create', [App\Http\Controllers\UserController::class, 'create_user'])->name('user.create');
+
