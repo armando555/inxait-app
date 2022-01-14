@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use App\Models\UserInxait;
+use App\Exports\UsersInxaitExport;
+use App\Exports\WinnersExport;
 use App\Models\Winner;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -105,5 +108,12 @@ class UserController extends Controller
         }else{
             return "no hay usuarios";
         }
+    }
+
+    public function export_excel(){
+        return Excel::download(new UsersInxaitExport, 'users.xlsx');
+    }
+    public function export_excel_winners(){
+        return Excel::download(new WinnersExport, 'winners.xlsx');
     }
 }

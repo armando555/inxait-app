@@ -126,6 +126,9 @@
                     <h3>El último ganador escogido es: <br> {{ $data['winner']->getName() }} {{ $data['winner']->getLastName() }} con cédula: {{ $data['winner']->getCedula() }}</h3>
                 @endif
                 <p>El número de usuarios es: {{ $data["count"] }}</p>
+                <a class="btn btn-warning" href="{{ route('user.excel') }}">Export UserInxait Data</a>
+                <a class="btn btn-info" href="{{ route('winners.excel') }}">Export Winners Data</a>
+                <br>
             </div>
             <div>
                 <ul>

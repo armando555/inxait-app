@@ -21,5 +21,7 @@ Route::get('/home', [App\Http\Controllers\UserController::class, 'get_all_users'
 Route::post('/user/create', [App\Http\Controllers\UserController::class, 'create_user'])->name('user.create');
 Route::post('/cities', [App\Http\Controllers\UserController::class, 'cities'])->name('cities');
 Route::get('/winner', [App\Http\Controllers\UserController::class, 'choose_winner'])->name('user.winner');
+Route::get('/export', [App\Http\Controllers\UserController::class, 'export_excel'])->name('user.excel');
+Route::get('/exportWinners', [App\Http\Controllers\UserController::class, 'export_excel_winners'])->name('winners.excel');
 
 
