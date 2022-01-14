@@ -54,27 +54,23 @@
                         <div class="form-group row">
                             <label for="state" class="col-md-4 col-form-label text-md-right">Departamento</label>
 
-                            <div class="col-md-6">
-                                <input id="state" type="text" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required autocomplete="state" autofocus>
-
-                                @error('state')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="col-md-6 select-box">
+                                <select name="state" id="_state" class="form-control form-control-md">
+                                    
+                                    @foreach ( $data['states'] as $state )
+                                    <option value="{{ $state["state_name"] }}">{{ $state["state_name"] }}</option>
+                                    @endforeach                                
+                                </select>
                             </div>
                         </div>
+                        
                         <div class="form-group row">
                             <label for="city" class="col-md-4 col-form-label text-md-right">Ciudad</label>
 
-                            <div class="col-md-6">
-                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
-
-                                @error('city')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="col-md-6 select-box">
+                                <select name="city" id="_city" class="form-control form-control-md">
+                                                                 
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -152,4 +148,27 @@
         </div>
     </div>
 </div>
+<script>
+    const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
+    document.getElementById('_state').addEventListener('change',(e)=>{
+        fetch('cities',{
+            method : 'POST',
+            body: JSON.stringify({texto : e.target.value}),
+            headers:{
+                'Content-Type': 'application/json',
+                "X-CSRF-Token": csrfToken
+            }
+        }).then(response =>{
+                console.log(csrfToken);
+                return response.json()
+        }).then(data =>{
+            var opciones = "";
+            for (let i in data.lista) {
+                opciones+= '<option value="'+data.lista[i]+'">'+data.lista[i]+'</option>'
+            }//*/
+            //console.log(data);
+            document.getElementById("_city").innerHTML = opciones;
+        }).catch(error =>console.error(error));
+    })
+</script>
 @endsection

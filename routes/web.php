@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\UserController::class, 'get_all_users'])->name('home');
 Route::post('/user/create', [App\Http\Controllers\UserController::class, 'create_user'])->name('user.create');
+Route::post('/cities', [App\Http\Controllers\UserController::class, 'cities'])->name('cities');
 
