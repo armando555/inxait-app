@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
-        <title>@yield('title','Home Page2')</title>
+        <title>@yield('title','Inxait App')</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
