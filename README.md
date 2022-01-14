@@ -4,9 +4,12 @@ Se necesita instalar previamente php 7.4, Apache, MySQL y Composer para ejecutar
 
 Primero se debe clonar este repositorio el cual tiene una aplicación en Laravel de versión 8.12 Y PHP 7.4.
 
-Luego de clonar este repositorio lo que se debe hacer es ejecutar el comando:
+Luego de clonar este repositorio lo que se debe hacer es ejecutar los siguientes comandos:
 ```
 composer install
+```
+```
+composer require maatwebsite/excel
 ```
 luego de haber instalado las librerías tenemos que crear el archivo .env basado en archivo llamado .env-example, del cual tenemos que poner el nombre de la base de datos MYSQL, su host, usuario y contraseña. En mi caso, lo ejecuto local en una máquina Windows 10 con WAMP server por lo cual solo debo poner la base de datos llamada "laravel" y dejar host como localhost, y usuario root y contraseña en blanco, ya que así se configura WAMP Server.
 
