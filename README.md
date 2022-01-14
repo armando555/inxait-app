@@ -17,7 +17,7 @@ para esto ejecutamos el comando en linux
 ```
 mv .env-example .env
 ```
-y modificamos estas variables de entorno con las de nuestra base de datos, en mi caso son estas
+y modificamos estas variables de entorno con las de nuestra base de datos, en mi caso son estas (.env file)
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
