@@ -50,6 +50,21 @@ class UserInxait extends Model
             ]
         );
     }
+    public function getHabeasData()
+    {
+
+        return $this->attributes['habeasData'];
+    }
+
+    public function setHabeasData($habeasData)
+    {
+
+        $this->attributes['habeasData'] = $habeasData;
+    }
+
+
+
+
     public function getId()
     {
 

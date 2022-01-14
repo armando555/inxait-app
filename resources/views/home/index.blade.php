@@ -120,10 +120,10 @@
                     </form>
                 </div>
             </div>
-            <div style="background-color: brown">
+            <div>
                 @if ($data["count"] >= 5)
-                    <a href="#" class="btn btn-primary">Escoger Ganador</a>
-                    <h3>El último ganador escogido es:</h3>
+                    <!--<a href="{{ route('user.winner') }}" class="btn btn-primary">Escoger Ganador</a>-->
+                    <h3>El último ganador escogido es: <br> {{ $data['winner']->getName() }} {{ $data['winner']->getLastName() }} con cédula: {{ $data['winner']->getCedula() }}</h3>
                 @endif
                 <p>El número de usuarios es: {{ $data["count"] }}</p>
             </div>
@@ -134,7 +134,7 @@
                         <h5 class="card-header"> {{ $user->getId() }}</h5>
                         <div class="card-body card-item-cart">                                
                             <ul>
-                                <li><strong>{{ $user->getName() }} {{ $user->getLastName() }}</strong></li>
+                                <li><strong>{{ $user->getName() }} {{ $user->getLastName() }}--- Departamento: {{ $user->getState() }}, Ciudad: {{ $user->getCity() }}</strong></li>
 
                             </ul>
                             
