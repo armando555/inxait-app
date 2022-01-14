@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
     public function get_all_users()
     {
         $token = "kUu8tWVjwUZsdISLGNb4S2MB42VEktSOs3r7CapLX5_2UmBZeS7dHli81ROAJtIatJs";
@@ -42,6 +43,13 @@ class UserController extends Controller
     }
     public function cities(Request $request){
         //dd($request);
+        $token = "kUu8tWVjwUZsdISLGNb4S2MB42VEktSOs3r7CapLX5_2UmBZeS7dHli81ROAJtIatJs";
+        $response = Http::withHeaders([
+            "Accept"=> "application/json",
+            "api-token"=> $token,
+            "user-email"=> "armandosebas4@gmail.com"
+        ])->get('https://www.universal-tutorial.com/api/getaccesstoken');
+        $this->tokenAuth = $response->json('auth_token');
         if(isset($request->texto)){
             $cities = Http::withHeaders([
                 "Authorization"=> "Bearer ".$this->tokenAuth,

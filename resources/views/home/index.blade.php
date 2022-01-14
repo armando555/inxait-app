@@ -164,9 +164,9 @@
         }).then(data =>{
             var opciones = "";
             for (let i in data.lista) {
-                opciones+= '<option value="'+data.lista[i]+'">'+data.lista[i]+'</option>'
+                opciones+= '<option value="'+data.lista[i].city_name+'">'+data.lista[i].city_name+'</option>'
             }//*/
-            //console.log(data);
+            console.log(data);
             document.getElementById("_city").innerHTML = opciones;
         }).catch(error =>console.error(error));
     })
