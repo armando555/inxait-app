@@ -1,4 +1,5 @@
 # Inxait-app
+## Ip de la máquina donde se desplegó la aplicación http://54.162.120.102/
 Esta es mi solución para la prueba de conocimiento
 Se necesita instalar previamente php 7.4, Apache, MySQL y Composer para ejecutar los comandos requeridos
 
