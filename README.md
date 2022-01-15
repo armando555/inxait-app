@@ -47,4 +47,4 @@ php artisan db:seed
 ![alt text](https://github.com/armando555/inxait-app/blob/develop/database.png)
 
 ## video de prueba 
-
+https://drive.google.com/file/d/19fqsZ2Q_o6n_kVfzvuuo99fgdZ_Ye_c9/view?usp=sharing
